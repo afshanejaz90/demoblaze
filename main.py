@@ -1,4 +1,5 @@
 import configparser
+import os
 
 from selenium import webdriver
 
@@ -15,7 +16,7 @@ def main():
     config.read('config.ini')
 
     # Using Chrome for testing
-    driver = webdriver.Chrome(config['CHROME']['executable'])
+    driver = webdriver.Chrome(os.path.join(os.path.join(os.getcwd(), config['CHROME']['executable'])))
 
     # Change Implicit time to 10s
     driver.implicitly_wait(10)
